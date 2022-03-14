@@ -85,6 +85,7 @@ public class BackGroundJobDemo1WebModule : AbpModule
         ConfigureNavigationServices();
         ConfigureAutoApiControllers();
         ConfigureSwaggerServices(context.Services);
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 
     private void ConfigureUrls(IConfiguration configuration)

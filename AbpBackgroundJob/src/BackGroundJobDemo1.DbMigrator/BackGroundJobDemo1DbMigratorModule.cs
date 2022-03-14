@@ -1,4 +1,5 @@
 ﻿using BackGroundJobDemo1.EntityFrameworkCore;
+using System;
 using Volo.Abp.Autofac;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Modularity;
@@ -15,5 +16,6 @@ public class BackGroundJobDemo1DbMigratorModule : AbpModule
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         Configure<AbpBackgroundJobOptions>(options => options.IsJobExecutionEnabled = false);
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 }
